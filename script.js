@@ -4,9 +4,9 @@ function getComputerChoice() {
     return options[randomIndex];
 }
 
-function playRound(computerChoice, playerChoice) {
+function playRound(computerChoice, playerSelection) {
     const cc = computerChoice.toLowerCase();
-    const pc = playerChoice.toLowerCase();
+    const pc = playerSelection.toLowerCase();
 
     if (pc === cc) {
         return "It's a tie!";
@@ -21,17 +21,24 @@ function playRound(computerChoice, playerChoice) {
     }
 }
 
-let playerSelection = prompt('Choose your option? (Rock/Paper/Scissors)').trim();
+// let playerSelection = prompt('Choose your option? (Rock/Paper/Scissors)').trim();
 
 // Validate user input
-const validOptions = ["rock", "paper", "scissors"];
-while (!validOptions.includes(playerSelection.toLowerCase())) {
-    playerSelection = prompt('Invalid choice! Please choose between Rock, Paper, or Scissors.').trim();
-}
+// const validOptions = ["rock", "paper", "scissors"];
+// while (!validOptions.includes(playerSelection.toLowerCase())) {
+//     playerSelection = prompt('Invalid choice! Please choose between Rock, Paper, or Scissors.').trim();
+// }
 
-const computerSelection = getComputerChoice();
-const result = playRound(computerSelection, playerSelection);
+const playerSelection = document.querySelectorAll('.container.box')
+playerSelection.forEach((choice)=>{
+    choice.addEventListener('click', ()=>{
+        console.log(choice);
+    });
+});
 
-console.log("Computer's choice:", computerSelection);
-console.log("Your choice:", playerSelection);
-alert(result);
+// const computerSelection = getComputerChoice();
+// const result = playRound(computerSelection, playerSelection);
+
+// console.log("Computer's choice:", computerSelection);
+// console.log("Your choice:", playerSelection);
+// alert(result);
