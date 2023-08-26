@@ -8,17 +8,22 @@
     <script src="https://kit.fontawesome.com/7cb26e5b4b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="choice container">
-        <div class="choice box R">
+    <div class="choice-options container">
+        <div class="choice box R" data-choice="rock">
             <i class="fa-solid fa-hand-back-fist"></i>
         </div>
-        <div class="choice box P">
+        <div class="choice box P" data-choice="paper">
             <i class="fa-solid fa-hand"></i>
         </div>
-        <div class="choice box S">
+        <div class="choice box S" data-choice="scissors">
             <i class="fa-solid fa-hand-scissors"></i>
         </div>
+    </div>
+    <div class="result container">
+        <div class="player-score"><a>YOUR SCORE</a></div>
+        <div id="result"></div>    
+        <div class="computer-score">COMPUTER'S SCORE</div>
     </div> 
 </body>
-<script src="script.js"></script>
+<script src="script-remake.js"></script>
 </html>
