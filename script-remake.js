@@ -11,6 +11,8 @@ let result;
 playerScore = 0;
 computerScore = 0;
 
+
+
 const getComputerChoice = function () {
     const options = ["rock", "paper", "scissors"];
     const randomIndex = Math.floor(Math.random() * options.length);
@@ -37,13 +39,13 @@ function checkWinner(cc, pc) {
         }
     }
 }
-
 document.querySelectorAll('.box').forEach(choice => {
     choice.addEventListener('click', () => {
         playerChoice = choice.getAttribute('data-choice');
         computerChoice = getComputerChoice();
         // const result = playRound(getComputerChoice(), playerChoice);
         // displayResult(result);
+        choice.classList.add('selecting');
         console.log(playerChoice);
         checkWinner(computerChoice, playerChoice);
         resultText.textContent = result;
@@ -55,11 +57,18 @@ document.querySelectorAll('.box').forEach(choice => {
         if (computerScore === 5) {
             resultText.textContent = "Computer wins this battle! You have been defeated";
         }
+
     });
 
 })
 
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('selecting');
+    console.log(e.propertyName)
+}
 
+document.querySelectorAll('.box').forEach(choice => {
+    choice.addEventListener('transitioned', removeTransition)
 
-
-
+})
